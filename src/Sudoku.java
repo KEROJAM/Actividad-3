@@ -1,17 +1,5 @@
 public class Sudoku {
-    static int[][] board = {
-            {0},{4},{0}, {0},{0},{0}, {0},{0},{7},
-            {0},{8},{0}, {0},{1},{0}, {0},{0},{0},
-            {0},{0},{0}, {0},{0},{0}, {0},{6},{4},
 
-            {2},{1},{0}, {0},{5},{0}, {6},{3},{9},
-            {0},{0},{0}, {7},{0},{0}, {0},{8},{0},
-            {8},{0},{4}, {1},{0},{0}, {0},{0},{0},
-
-            {0},{0},{0}, {0},{2},{6}, {0},{0},{4},
-            {0},{2},{0}, {0},{0},{0}, {0},{0},{0},
-            {7},{0},{0}, {3},{0},{1}, {5},{9},{0},
-    };
     static int empty = 0;
 
     /**
@@ -23,7 +11,7 @@ public class Sudoku {
        for (int row = 0; row < 9; row++)
         for (int col = 0; col < 9; col++){
             if (board[row][col] == empty){
-                for (int num = 0; num <= 9; num++){
+                for (int num = 1; num <= 9; num++){
                     if (validMove(board, row,col,num)){
                         board[row][col] = num;
                         if (Solve(board)){
@@ -65,8 +53,8 @@ public class Sudoku {
         int boxRow = row - row % 3;
         int boxCol = col - col % 3;
 
-        for (int i = boxRow; i < boxRow; i++){
-            for (int j = boxCol; j < boxCol; j++){
+        for (int i = boxRow; i < boxRow + 3; i++){
+            for (int j = boxCol; j < boxCol + 3; j++){
                 if (board[i][j] == num){
                     return true;
                 }
@@ -75,7 +63,7 @@ public class Sudoku {
         return false;
     }
 
-    public static void printBoard(){
+    public static void printBoard(int[][] board){
         for (int row = 0; row < 9; row++) {
             if (row % 3 == 0 && row != 0) {
                 System.out.println("------+-------+------");
@@ -95,8 +83,44 @@ public class Sudoku {
             System.out.println();
         }
     }
+    public static boolean isValidSolution(int[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                int temp = board[i][j];
+                board[i][j] = empty; // Temporarily remove number
+
+                if (!validMove(board, i, j, temp)) {
+                    board[i][j] = temp; // Restore number
+                    return false;
+                }
+
+                board[i][j] = temp; // Restore number
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args){
+        int[][] board = {
+                {5, 3, 0, 0, 7, 0, 0, 0, 0},
+                {6, 0, 0, 1, 9, 5, 0, 0, 0},
+                {0, 9, 8, 0, 0, 0, 0, 6, 0},
+                {8, 0, 0, 0, 6, 0, 0, 0, 3},
+                {4, 0, 0, 8, 0, 3, 0, 0, 1},
+                {7, 0, 0, 0, 2, 0, 0, 0, 6},
+                {0, 6, 0, 0, 0, 0, 2, 8, 0},
+                {0, 0, 0, 4, 1, 9, 0, 0, 5},
+                {0, 0, 0, 0, 8, 0, 0, 7, 9}
+        };
 
+        System.out.println("Original Puzzle:");
+        printBoard(board);
+
+        if (Solve(board)) {
+            System.out.println("\nSolved Puzzle:");
+            printBoard(board);
+        } else {
+            System.out.println("No solution exists for this board.");
+        }
     }
 }
