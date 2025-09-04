@@ -75,7 +75,7 @@ public class Sudoku {
                 }
 
                 if (board[row][col] == empty) {
-                    System.out.print(". ");
+                    System.out.print("* ");
                 } else {
                     System.out.print(board[row][col] + " ");
                 }
