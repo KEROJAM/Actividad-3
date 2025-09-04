@@ -1,6 +1,6 @@
 # Actividad 3 - Estructura de Datos
 
-## Sistema de Gestion de Comandos y Procesos
+## Uso de Recursividad y Algoritmos Backtracking 
 
 Este proyecto implementa un sistema interactivo que utiliza medios para resolver problemas de programacion usando: ***Recursividad*** y ***Algoritmos de Divide & Venceras***
 
