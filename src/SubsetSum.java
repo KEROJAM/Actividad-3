@@ -4,7 +4,7 @@ public class SubsetSum {
 
     public static void main(String[] args) {
         // Ejemplo 1: conjunto básico
-        int[] conjunto1 = {3, 34, 4, 12, 5, 2};
+        int[] conjunto1 = {4, 3, 4, 12, 6, 5, 1};
         int suma1 = 9;
 
         System.out.println("Conjunto: " + Arrays.toString(conjunto1));
@@ -12,10 +12,10 @@ public class SubsetSum {
 
         List<Integer> solucion1 = new ArrayList<>();
         if (existeSumaSubconjunto(conjunto1, conjunto1.length, suma1, solucion1)) {
-            System.out.println("✓ Sí existe un subconjunto con suma " + suma1);
+            System.out.println("Sí existe un subconjunto con suma " + suma1);
             System.out.println("Subconjunto encontrado: " + solucion1);
         } else {
-            System.out.println("✗ No existe un subconjunto con suma " + suma1);
+            System.out.println("No existe un subconjunto con suma " + suma1);
         }
 
         System.out.println("\n" + "-*".repeat(25));

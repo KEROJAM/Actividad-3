@@ -1,7 +1,7 @@
 public class Fibonacci {
 
         /**
-         * Calcula el n-ésimo número de Fibonacci de forma recursiva
+         * Calcula el número de Fibonacci de forma recursiva
          * @param n la posición en la secuencia (empezando desde 0)
          * @return el valor de Fibonacci en la posición n
          */
