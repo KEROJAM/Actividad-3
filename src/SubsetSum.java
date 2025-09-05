@@ -42,7 +42,7 @@ public class SubsetSum {
 
         // Ejemplo 3: caso más complejo
         System.out.println("\n" + "-*".repeat(25));
-        int[] conjunto3 = {10, 7, 5, 18, 12, 20, 15};
+        int[] conjunto3 = {10, 6, 2, 13, 11, 20, 10};
         int suma3 = 35;
 
         System.out.println("\nConjunto: " + Arrays.toString(conjunto3));
@@ -50,10 +50,10 @@ public class SubsetSum {
 
         List<Integer> solucion3 = new ArrayList<>();
         if (existeSumaSubconjunto(conjunto3, conjunto3.length, suma3, solucion3)) {
-            System.out.println("✓ Sí existe un subconjunto con suma " + suma3);
+            System.out.println("Sí existe un subconjunto con suma " + suma3);
             System.out.println("Subconjunto encontrado: " + solucion3);
         } else {
-            System.out.println("✗ No existe un subconjunto con suma " + suma3);
+            System.out.println("No existe un subconjunto con suma " + suma3);
         }
     }
 
@@ -123,30 +123,4 @@ public class SubsetSum {
         encontrarTodosLosSubconjuntos(conjunto, n - 1, suma, subconjuntoActual, todasLasSoluciones);
     }
 
-    /**
-     * Versión simplificada que solo retorna true/false sin guardar la solución
-     */
-    public static boolean tieneSumaSubconjunto(int[] conjunto, int n, int suma) {
-        // Casos base
-        if (suma == 0) return true;
-        if (n == 0 || suma < 0) return false;
-
-        // Recursión: incluir o no incluir el elemento actual
-        return tieneSumaSubconjunto(conjunto, n - 1, suma - conjunto[n - 1]) ||
-                tieneSumaSubconjunto(conjunto, n - 1, suma);
-    }
-
-    /**
-     * Método auxiliar para imprimir el conjunto de manera legible
-     */
-    public static void imprimirConjunto(int[] conjunto) {
-        System.out.print("{ ");
-        for (int i = 0; i < conjunto.length; i++) {
-            System.out.print(conjunto[i]);
-            if (i < conjunto.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println(" }");
-    }
 }

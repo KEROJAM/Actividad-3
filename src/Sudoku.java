@@ -17,7 +17,6 @@ public class Sudoku {
                         if (Solve(board)){
                             return true;
                         }
-
                         board[row][col] = empty;
                     }
                 }
