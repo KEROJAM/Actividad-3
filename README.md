@@ -55,3 +55,6 @@ java Sudoku.java
 ### Manejo de Errores
  * El sudoku indica si se puede resolver el tablero o no
  * La suma de Sub Conuntos busca si hay una suma valida del resultado buscado 
+
+#### Clase de Sudoku Extra
+hay una clase extra de sudoku donde resuelve el sudoku e imprime los numeros uno por uno y muestra como hace el retroseso el problema es que es muy tardado y toma mucho tiempo por eso lo pongo como extra
